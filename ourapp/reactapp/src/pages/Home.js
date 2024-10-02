@@ -125,4 +125,4 @@ export default function Home() {
   );
 }
 
-/*Frontend sample (done mostly)*/
+/* Frontend done mostly*/
