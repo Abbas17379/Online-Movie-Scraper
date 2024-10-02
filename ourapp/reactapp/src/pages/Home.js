@@ -124,3 +124,5 @@ export default function Home() {
     </main>
   );
 }
+
+/*Frontend sample (done mostly)*/
