@@ -4,18 +4,34 @@ import SavedMovies from "../components/SavedMovies";
 
 export default function Home() {
   // State for demo data (movies, recommendations, reminders, watchlist)
-  const [movies, setMovies] = useState([
-    { id: 1, title: "Harry Potter And The Goblet of Fire", status: "Working", link: "https://www.imdb.com/title/tt0330373/", img: "https://m.media-amazon.com/images/I/71opdcUCGjL._AC_UF894,1000_QL80_.jpg" },
-    { id: 2, title: "Joker", status: "Broken", link: "https://www.imdb.com/title/tt7286456/", img: "https://m.media-amazon.com/images/I/51E+o6036kL._AC_UF894,1000_QL80_.jpg" },
-    { id: 3, title: "Dune", status: "Working", link: "https://www.imdb.com/title/tt1160419/", img: "https://storage.googleapis.com/pod_public/1300/216439.jpg" }
-  ]);
-
+  const [movies, setMovies] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [reminders, setReminders] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState(movies);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [error, setError] = useState(null);
+
+  // fetch all movies in database
+  useEffect(() => {
+    fetch('http://localhost:3000/movies')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMovies(data);  // Update state with fetched movies data
+        setFilteredMovies(data);
+      })
+      .catch((error) => {
+        setError(error.message);  // Set error state if there's an issue
+      });
+
+      console.log("movies", movies)
+  }, []);
 
   // Simulate fetching recommendations and reminders after component mounts
   useEffect(() => {
@@ -84,6 +100,7 @@ export default function Home() {
           <button onClick={() => filterMovies("Broken")}>Broken</button>
         </div>
 
+        
         {/* Movie List Section */}
         <h2>Available Movies</h2>
         <div className="movie-grid">
