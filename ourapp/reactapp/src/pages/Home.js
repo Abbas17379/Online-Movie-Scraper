@@ -30,7 +30,6 @@ export default function Home() {
         setError(error.message);  // Set error state if there's an issue
       });
 
-      console.log("movies", movies)
   }, []);
 
   // Simulate fetching recommendations and reminders after component mounts
@@ -160,9 +159,13 @@ export default function Home() {
           </div>
         )}
       </div>
-      <SavedMovies/>
+      {/* <SavedMovies/> */}
     </main>
   );
 }
 
 /* Frontend done mostly*/
+// This is what I have for now. The statics for the 
+// webiste have been setup and now I will look into the
+// scraping aspect with Nokogiri as well as the status
+// indicator implementation
