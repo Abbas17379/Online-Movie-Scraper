@@ -13,3 +13,5 @@ Requirements 4, 5, and 6 are "done" but can obviously be worked on more. I will 
 1) Figure out how Nokogiri works and how to use it to scrape links
 2) Figure out how to alter database given the scraped links
 3) Figure out how to actually implement the status indicators from theoretical to actual code.
+
+# Zoom link: https://duke.zoom.us/rec/share/UnlWJWV3AJzqPXcf_Yuo1K0rWc6wUABmw-RXp46nxANhOcadTlCEizwP5EPwPjrB.2gKwCgA6WqIBGipi
