@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css"; // Importing the CSS
+import SavedMovies from "../components/SavedMovies";
 
 export default function Home() {
   // State for demo data (movies, recommendations, reminders, watchlist)
   const [movies, setMovies] = useState([
-    { id: 1, title: "Harry Potter And The Goblet of Fire", status: "Working", img: "https://m.media-amazon.com/images/I/71opdcUCGjL._AC_UF894,1000_QL80_.jpg" },
-    { id: 2, title: "Joker", status: "Broken", img: "https://m.media-amazon.com/images/I/51E+o6036kL._AC_UF894,1000_QL80_.jpg" },
-    { id: 3, title: "Dune", status: "Working", img: "https://storage.googleapis.com/pod_public/1300/216439.jpg" }
+    { id: 1, title: "Harry Potter And The Goblet of Fire", status: "Working", link: "https://www.imdb.com/title/tt0330373/", img: "https://m.media-amazon.com/images/I/71opdcUCGjL._AC_UF894,1000_QL80_.jpg" },
+    { id: 2, title: "Joker", status: "Broken", link: "https://www.imdb.com/title/tt7286456/", img: "https://m.media-amazon.com/images/I/51E+o6036kL._AC_UF894,1000_QL80_.jpg" },
+    { id: 3, title: "Dune", status: "Working", link: "https://www.imdb.com/title/tt1160419/", img: "https://storage.googleapis.com/pod_public/1300/216439.jpg" }
   ]);
 
   const [recommendations, setRecommendations] = useState([]);
@@ -52,6 +53,25 @@ export default function Home() {
     setSelectedMovie(null);
   };
 
+  // Function that:
+  // - map current movie that user is looking at to the link stored in the database
+  const watchMovie = (movie) => {
+
+    if (movie.status === "Working" && movie.link) {
+      // Navigate to the movie's link in the same tab
+      window.location.href = movie.link;
+    } else {
+      alert("This movie is currently unavailable or has a broken link.");
+    }
+    // first what movie did i click on
+
+    // find that movie in database
+
+    // find that link
+
+    // direct user to that link, no new tab
+  }
+
   return (
     <main className="layout-container">
       <div className="intro-section">
@@ -75,6 +95,8 @@ export default function Home() {
                 Status: <span className={`status ${movie.status.toLowerCase()}`}>{movie.status}</span>
               </p>
               <button onClick={(e) => { e.stopPropagation(); addToWatchlist(movie); }}>Add to Watchlist</button>
+              <button onClick={(e) => { e.stopPropagation(); watchMovie(movie) }}>Watch Now</button>
+
             </div>
           ))}
         </div>
@@ -121,6 +143,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <SavedMovies/>
     </main>
   );
 }
