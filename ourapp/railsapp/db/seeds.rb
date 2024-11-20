@@ -5,33 +5,33 @@ Movie.destroy_all
 Movie.create!([
   {
     title: 'Harry Potter And The Goblet of Fire',
-    link: 'https://www.imdb.com/title/tt0330373/',
+    link: 'https://freek.to/watch/movie/674',
     status: 'Working',
-    image_url: 'https://imageurl.com/harry_potter.jpg'
+    image_url: 'https://m.media-amazon.com/images/I/71+GBOF0-fL._AC_UF894,1000_QL80_.jpg'
   },
   {
     title: 'Joker',
-    link: 'https://www.imdb.com/title/tt7286456/',
+    link: 'https://freek.to/watch/movie/475557',
     status: 'Broken',
-    image_url: 'https://imageurl.com/joker.jpg'
+    image_url: 'https://m.media-amazon.com/images/I/51E+o6036kL._AC_UF894,1000_QL80_.jpg'
   },
   {
     title: 'Dune',
-    link: 'https://www.imdb.com/title/tt1160419/',
+    link: 'https://freek.to/watch/movie/438631',
     status: 'Working',
-    image_url: 'https://imageurl.com/dune.jpg'
+    image_url: 'https://storage.googleapis.com/pod_public/1300/216439.jpg'
   },
   {
     title: 'Inception',
-    link: 'https://www.imdb.com/title/tt1375666/',
+    link: 'https://filmartgallery.com/cdn/shop/files/Inception-Vintage-Movie-Poster-Original-1-Sheet-27x41.jpg?…',
     status: 'Working',
-    image_url: 'https://imageurl.com/inception.jpg'
+    image_url: 'https://filmartgallery.com/cdn/shop/files/Inception-Vintage-Movie-Poster-Original-1-Sheet-27x41.jpg?…'
   },
   {
     title: 'The Dark Knight',
-    link: 'https://www.imdb.com/title/tt0468569/',
+    link: 'https://freek.to/watch/movie/155',
     status: 'Working',
-    image_url: 'https://imageurl.com/dark_knight.jpg'
+    image_url: 'https://m.media-amazon.com/images/I/81IfoBox2TL.jpg'
   }
 ])
 

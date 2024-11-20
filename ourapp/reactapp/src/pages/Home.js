@@ -23,18 +23,16 @@ export default function Home() {
         return response.json();
       })
       .then((data) => {
-        setMovies(data);  // Update state with fetched movies data
+        setMovies(data); // Update state with fetched movies data
         setFilteredMovies(data);
       })
       .catch((error) => {
-        setError(error.message);  // Set error state if there's an issue
+        setError(error.message); // Set error state if there's an issue
       });
-
   }, []);
 
   // Simulate fetching recommendations and reminders after component mounts
   useEffect(() => {
-    // Simulating delay for recommendations and reminders
     setTimeout(() => {
       setRecommendations(["Recommended Movie 1", "Recommended Movie 2", "Recommended Movie 3"]);
     }, 2000);
@@ -68,24 +66,13 @@ export default function Home() {
     setSelectedMovie(null);
   };
 
-  // Function that:
-  // - map current movie that user is looking at to the link stored in the database
   const watchMovie = (movie) => {
-
     if (movie.status === "Working" && movie.link) {
-      // Navigate to the movie's link in the same tab
       window.location.href = movie.link;
     } else {
       alert("This movie is currently unavailable or has a broken link.");
     }
-    // first what movie did i click on
-
-    // find that movie in database
-
-    // find that link
-
-    // direct user to that link, no new tab
-  }
+  };
 
   return (
     <main className="layout-container">
@@ -99,20 +86,27 @@ export default function Home() {
           <button onClick={() => filterMovies("Broken")}>Broken</button>
         </div>
 
-        
         {/* Movie List Section */}
         <h2>Available Movies</h2>
         <div className="movie-grid">
           {filteredMovies.map((movie) => (
             <div key={movie.id} className="movie-card" onClick={() => handleMovieClick(movie)}>
-              <img src={movie.img} alt={movie.title} className="movie-poster" />
+              <img src={movie.image_url} alt={movie.title} className="movie-poster" />
               <h3>{movie.title}</h3>
               <p>
                 Status: <span className={`status ${movie.status.toLowerCase()}`}>{movie.status}</span>
               </p>
-              <button onClick={(e) => { e.stopPropagation(); addToWatchlist(movie); }}>Add to Watchlist</button>
-              <button onClick={(e) => { e.stopPropagation(); watchMovie(movie) }}>Watch Now</button>
+              <button 
+  className="button-smaller" 
+  onClick={(e) => { 
+    e.stopPropagation(); 
+    addToWatchlist(movie); 
+  }}
+>
+  Add to Watchlist
+</button>
 
+              <button onClick={(e) => { e.stopPropagation(); watchMovie(movie) }}>Watch Now</button>
             </div>
           ))}
         </div>
@@ -152,20 +146,13 @@ export default function Home() {
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <h2>{selectedMovie.title}</h2>
-              <img src={selectedMovie.img} alt={selectedMovie.title} className="modal-poster" />
+              <img src={selectedMovie.image_url} alt={selectedMovie.title} className="modal-poster" />
               <p>Status: <span className={`status ${selectedMovie.status.toLowerCase()}`}>{selectedMovie.status}</span></p>
               <button onClick={closeModal}>Close</button>
             </div>
           </div>
         )}
       </div>
-      {/* <SavedMovies/> */}
     </main>
   );
 }
-
-/* Frontend done mostly*/
-// This is what I have for now. The statics for the 
-// webiste have been setup and now I will look into the
-// scraping aspect with Nokogiri as well as the status
-// indicator implementation

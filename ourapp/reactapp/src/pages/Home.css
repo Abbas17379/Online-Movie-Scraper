@@ -78,7 +78,7 @@ body {
 }
 
 .movie-poster {
-  width: 50%;
+  /* width: 50%; */
   height: 300px;
   object-fit: cover;
   border-radius: 12px;
@@ -92,20 +92,33 @@ body {
   justify-content: center;
 }
 
+/* Default button styling */
 button {
   background-color: #e50914;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem; /* Default size */
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 1rem; /* Default font size */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect for all buttons */
 button:hover {
   background-color: #b20710;
 }
+
+
+/* Slightly smaller buttons with increased top and bottom padding */
+.button-smaller {
+  padding: 0.8rem 1.2rem; /* Increased top/bottom padding, same left/right */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
 
 /* Recommendations Styling */
 .recommendations {
@@ -212,8 +225,10 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+/* Buttons inside the modal */
 .modal-content button {
-  margin-top: 1rem;
+  margin-top: 1.5rem; /* Adds spacing above the button */
+  margin-bottom: 1.5rem; /* Adds spacing below the button */
   padding: 0.75rem 1.5rem;
   background-color: #e50914;
   border: none;
@@ -223,9 +238,16 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
+
+.modal-content button + button {
+  margin-left: 2rem; /* Further increased spacing between the buttons */
+}
+
 .modal-content button:hover {
   background-color: #b20710;
 }
+
+
 
 /* Status indicators for movies */
 .status {
