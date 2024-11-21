@@ -8,4 +8,7 @@ All static elements of the wbsite have been fully implemented. Over break I will
 1) Figure out how Nokogiri works and how to use it to scrape links
 2) Figure out how to alter database given the scraped links
 
+
+# Zoom links: https://duke.zoom.us/rec/share/pBy4kswnUo95yzUnbpEfN2FMDgXXcUqCYjVKmgyDvHFl8MAQWDVZnkftwy8RNNOs.ZLI9bbkJ_NHaCBGD?startTime=1732157199000
+
 BYEEE!!!
