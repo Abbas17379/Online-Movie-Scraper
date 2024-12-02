@@ -18,7 +18,7 @@ class LinkScraperService
     options = Selenium::WebDriver::Chrome::Options.new
     driver = Selenium::WebDriver.for(
       :remote,
-      url: chrome_driver_url, # Use the explicit host IP
+      url: chrome_driver_url,
       capabilities: options
     )
 
@@ -46,12 +46,18 @@ class LinkScraperService
       { name: text, link: full_link }
     end.compact.uniq
 
+    # Display scraped movies in the terminal
+    puts "\nMovies scraped:\n"
+    movies.each_with_index do |movie, index|
+      puts "#{index + 1}. #{movie[:name]} - #{movie[:link]}"
+    end
+
     # Ensure the tmp directory exists
     tmp_dir = '/app/tmp'
     puts "Resolved tmp directory: #{tmp_dir}"
     FileUtils.mkdir_p(tmp_dir)
 
-    # Generate a unique filename with a timestamp
+    # Generate a unique filename
     timestamp = Time.now.strftime('%Y%m%d_%H%M%S')
     file_path = File.join(tmp_dir, "scraped_movies_#{timestamp}.json")
     puts "Resolved file path: #{file_path}"
