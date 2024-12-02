@@ -10,7 +10,7 @@ class LinkScraperService
 
   def scrape_and_save
     # Explicitly set the host IP for ChromeDriver
-    host_ip = '10.0.0.112' # Replace with your actual host machine's IP
+    host_ip = '10.197.218.116' # Replace with your actual host machine's IP
     chrome_driver_url = "http://#{host_ip}:4444"
     puts "Connecting to ChromeDriver at #{chrome_driver_url}"
 
