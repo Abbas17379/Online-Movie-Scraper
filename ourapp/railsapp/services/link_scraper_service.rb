@@ -66,6 +66,8 @@ class LinkScraperService
     puts "Debug: About to save file to #{file_path}"
     File.open(file_path, 'w') do |file|
       file.write(JSON.pretty_generate(movies))
+      puts("success")
+      puts(file.write(JSON.pretty_generate(movies)))
     end
 
     driver.quit
